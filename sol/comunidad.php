@@ -69,19 +69,10 @@ class Vecino {
                         
     $comunidad = new Comunidad("Edificio Sol");
     
-    $comunidad->gruposGastos[] = new GrupoGasto( "generales", 100, 3426.15);
-    $comunidad->gruposGastos[] = new GrupoGasto("pisos", 75, 3990);
+    $comunidad->gruposGastos[] = new GrupoGasto( "generales", 100, 3426);
+    $comunidad->gruposGastos[] = new GrupoGasto("pisos", 75, 0);
     $comunidad->gruposGastos[] = new GrupoGasto("sotanos", 10, 2660);
     $comunidad->gruposGastos[] = new GrupoGasto("pisos-sotanos", 85, 4900);
-    
-    
-    echo ("<h1>Grupos de gasto:</h1>");
-    echo '<table class="table table-striped">';
-    echo '<tr><th>Nombre</th><th>Porcentaje</th><th>Presupuesto anual</th></tr>';
-    foreach ($comunidad->gruposGastos as $grupo) {
-        echo ("<tr><td>".$grupo->nombre.'</td><td>'.$grupo->porcentaje.'</td><td>'.$grupo->presupuestoAnual.'</td></tr>');
-    };
-    echo '</table>';
     
     $comunidad->vecinos [] = new Vecino( "1A");
     $comunidad->vecinos [] = new Vecino("1B" );
@@ -97,15 +88,8 @@ class Vecino {
     $comunidad->vecinos [] = new Vecino("Peluqueria");
     $comunidad->vecinos [] = new Vecino("Arrechu");
         
-    echo "<h1>Vecinos:</h1>";
-    echo '<table class="table table-striped">';
-    echo '<tr><th>Nombre</th></tr>';
-    foreach ( $comunidad->vecinos as $vecino ) {
-        echo("<tr><td>".$vecino->nombre.'</td></tr>');
-    };
-    echo '</table>';
-        
-    $comunidad->propiedades [] = new Propiedad( "Sotano1", 5, ["generales", "sotanos"], "Arrechu");
+    $comunidad->propiedades [] = new Propiedad( "Sotano1Arrechu", 5.0/24*16, ["generales", "sotanos"], "Arrechu");
+    $comunidad->propiedades [] = new Propiedad( "Sotano1Abogados", 5.0/24*8, ["generales", "sotanos","pisos-sotanos"], "Arrechu");
     $comunidad->propiedades [] = new Propiedad( "1Sotano2", 5.0/27, ["generales", "sotanos","pisos-sotanos"], "2B");
     $comunidad->propiedades [] = new Propiedad( "2Sotano2", 5.0/27, ["generales", "sotanos"], "Arrechu");
     $comunidad->propiedades [] = new Propiedad( "3Sotano2", 5.0/27, ["generales", "sotanos"], "Arrechu");
@@ -113,7 +97,7 @@ class Vecino {
     $comunidad->propiedades [] = new Propiedad( "5Sotano2", 5.0/27, ["generales", "sotanos","pisos-sotanos"], "1A");
     $comunidad->propiedades [] = new Propiedad( "6Sotano2", 5.0/27, ["generales", "sotanos"], "Arrechu");
     $comunidad->propiedades [] = new Propiedad( "7Sotano2", 5.0/27, ["generales", "sotanos","pisos-sotanos"], "1C");
-    $comunidad->propiedades [] = new Propiedad( "8Sotano2", 5.0/27, ["generales", "sotanos","pisos-sotanos"], "1C");
+    $comunidad->propiedades [] = new Propiedad( "8Sotano2", 5.0/27, [], "1C");
     $comunidad->propiedades [] = new Propiedad( "9Sotano2", 5.0/27, ["generales", "sotanos"], "Arrechu");
     $comunidad->propiedades [] = new Propiedad( "10Sotano2", 5.0/27, ["generales", "sotanos"], "Arrechu");
     $comunidad->propiedades [] = new Propiedad( "11Sotano2", 5.0/27, ["generales", "sotanos"], "Arrechu");
@@ -122,19 +106,20 @@ class Vecino {
     $comunidad->propiedades [] = new Propiedad( "14Sotano2", 5.0/27, ["generales", "sotanos"], "Arrechu");
     $comunidad->propiedades [] = new Propiedad( "15Sotano2", 5.0/27, ["generales", "sotanos","pisos-sotanos"], "1D");
     $comunidad->propiedades [] = new Propiedad( "16Sotano2", 5.0/27, ["generales", "sotanos"], "Arrechu");
-    $comunidad->propiedades [] = new Propiedad( "17Sotano2", 5.0/27, ["generales", "sotanos","pisos-sotanos"], "Arrechu");
+    $comunidad->propiedades [] = new Propiedad( "17Sotano2", 5.0/27, ["generales", "sotanos","pisos-sotanos"], "1B");
     $comunidad->propiedades [] = new Propiedad( "18Sotano2", 5.0/27, ["generales", "sotanos","pisos-sotanos"], "2D");
-    $comunidad->propiedades [] = new Propiedad( "19Sotano2", 5.0/27, ["generales", "sotanos","pisos-sotanos"], "2D");
-    $comunidad->propiedades [] = new Propiedad( "20Sotano2", 5.0/27, ["generales", "sotanos","pisos-sotanos"], "Arrechu");
-    $comunidad->propiedades [] = new Propiedad( "21Sotano2", 5.0/27, ["generales", "sotanos","pisos-sotanos"], "Arrechu");
-    $comunidad->propiedades [] = new Propiedad( "22Sotano2", 5.0/27, ["generales", "sotanos","pisos-sotanos"], "Arrechu");
-    $comunidad->propiedades [] = new Propiedad( "23Sotano2", 5.0/27, ["generales", "sotanos","pisos-sotanos"], "Arrechu");
-    $comunidad->propiedades [] = new Propiedad( "24Sotano2", 5.0/27, ["generales", "sotanos","pisos-sotanos"], "Arrechu");
-    $comunidad->propiedades [] = new Propiedad( "25Sotano2", 5.0/27, ["generales", "sotanos","pisos-sotanos"], "Arrechu");
+    $comunidad->propiedades [] = new Propiedad( "19Sotano2", 5.0/27, [], "2D");
+    $comunidad->propiedades [] = new Propiedad( "20Sotano2", 5.0/27, ["generales", "sotanos"], "Arrechu");
+    $comunidad->propiedades [] = new Propiedad( "21Sotano2", 5.0/27, ["generales", "sotanos"], "Arrechu");
+    $comunidad->propiedades [] = new Propiedad( "22Sotano2", 5.0/27, ["generales", "sotanos"], "Arrechu");
+    $comunidad->propiedades [] = new Propiedad( "23Sotano2", 5.0/27, ["generales", "sotanos"], "Arrechu");
+    $comunidad->propiedades [] = new Propiedad( "24Sotano2", 5.0/27, ["generales", "sotanos"], "Arrechu");
+    $comunidad->propiedades [] = new Propiedad( "25Sotano2", 5.0/27, ["generales", "sotanos"], "Arrechu");
     $comunidad->propiedades [] = new Propiedad( "26Sotano2", 5.0/27, ["generales", "sotanos","pisos-sotanos"], "2C");
     $comunidad->propiedades [] = new Propiedad( "27Sotano2", 5.0/27, ["generales", "sotanos","pisos-sotanos"], "2E");
     $comunidad->propiedades [] = new Propiedad( "Entresuelo", 5, ["generales", "pisos","pisos-sotanos"], "Arrechu");
-    $comunidad->propiedades [] = new Propiedad( "Bajos", 10, ["generales"], "Arrechu");
+    $comunidad->propiedades [] = new Propiedad( "BajosArrechu", 8.7, ["generales"], "Arrechu");
+    $comunidad->propiedades [] = new Propiedad( "BajosPelu", 1.3, ["generales"], "Peluqueria");
     $comunidad->propiedades [] = new Propiedad( "1A", 7.52, ["generales", "pisos","pisos-sotanos"], "1A");
     $comunidad->propiedades [] = new Propiedad( "1B", 8.15, ["generales", "pisos","pisos-sotanos"], "1B");
     $comunidad->propiedades [] = new Propiedad( "1C", 5.74, ["generales", "pisos","pisos-sotanos"], "1C");
@@ -146,6 +131,33 @@ class Vecino {
     $comunidad->propiedades [] = new Propiedad( "2D", 8.25, ["generales", "pisos","pisos-sotanos"], "2D");
     $comunidad->propiedades [] = new Propiedad( "2E", 7.71, ["generales", "pisos","pisos-sotanos"], "2E");
     
+    //calcular porcentaje de cada grupo de gastos
+    foreach ($comunidad->gruposGastos as $grupo) {
+	$grupo->porcentaje = 0;
+        foreach ($comunidad->propiedades as $propiedad) {
+	    foreach ($propiedad->grupos as $grupoPropiedad) {
+	        if ($grupo->nombre == $grupoPropiedad)
+		    $grupo->porcentaje += $propiedad->coeficienteParticipacion;
+            };
+        };
+    };
+    
+    echo ("<h1>Grupos de gasto:</h1>");
+    echo '<table class="table table-striped">';
+    echo '<tr><th>Nombre</th><th>Porcentaje</th><th>Presupuesto anual</th></tr>';
+    foreach ($comunidad->gruposGastos as $grupo) {
+        echo ("<tr><td>".$grupo->nombre.'</td><td>'.$grupo->porcentaje.'</td><td>'.$grupo->presupuestoAnual.'</td></tr>');
+    };
+    echo '</table>';
+
+    echo "<h1>Vecinos:</h1>";
+    echo '<table class="table table-striped">';
+    echo '<tr><th>Nombre</th></tr>';
+    foreach ( $comunidad->vecinos as $vecino ) {
+        echo("<tr><td>".$vecino->nombre.'</td></tr>');
+    };
+    echo '</table>';
+
     $coeficienteTotal = 0;
     echo("<h1>Propiedades:</h1>");
     echo '<table class="table table-striped">';
