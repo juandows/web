@@ -1,5 +1,0 @@
-<?php
-    include('menu.php');
-    echo $container;
-    include('footer.php');
-

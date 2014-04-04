@@ -1,5 +1,9 @@
 <?php
-class CDefault {
+
+namespace controladores\index;
+
+
+class DefaultController {
 
 public function default_action()
 {
@@ -29,4 +33,4 @@ public function default_action()
 
 };
 
-$default = new CDefault();
+
